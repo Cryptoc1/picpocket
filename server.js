@@ -57,7 +57,7 @@ app.get('/', function(req, res) {
                                     endpoint: "home",
                                     error: "No new posts at the moment! :("
                                 })
-                            });
+                            }
                     }
                 })
         }
