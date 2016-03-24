@@ -1,36 +1,36 @@
 <div>
-    {{ #if error }}
+    {{#if error}}
         <error>{{ error }}</error>
-    {{ /if }}
-        <form class="form upload-form" action="/upload" method="post" enctype="multipart/form-data" onsubmit="showLoader()">
-            <input type="text" name="title" placeholder="Image Title">
-            <input type="file" name="image" id="image-file-input" required>
-            <img id="image-preview">
-            <input type="text" name="tags" placeholder="Tags (comma-seperated)">
-            <button type="submit">Upload</button>
-        </form>
+    {{/if}}
+    <form class="form upload-form" action="/upload" method="post" enctype="multipart/form-data" onsubmit="showLoader()">
+        <input type="text" name="title" placeholder="Image Title">
+        <input type="file" name="image" id="image-file-input" required>
+        <img id="image-preview">
+        <input type="text" name="tags" placeholder="Tags (comma-seperated)">
+        <button type="submit">Upload</button>
+    </form>
 
-        <script>
-            window.onload = function() {
-                document.getElementById('image-file-input').onchange = function() {
-                    if (this.files && this.files[0]) {
-                        var reader = new FileReader()
+    <script>
+        window.onload = function() {
+            document.getElementById('image-file-input').onchange = function() {
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader()
 
-                        reader.onload = function(e) {
-                            var img = document.getElementById('image-preview')
-                            img.src = e.target.result
-                            img.style.height = 'auto'
-                        }
-                        reader.readAsDataURL(this.files[0]);
+                    reader.onload = function(e) {
+                        var img = document.getElementById('image-preview')
+                        img.src = e.target.result
+                        img.style.height = 'auto'
                     }
+                    reader.readAsDataURL(this.files[0]);
                 }
             }
+        }
 
-            function showLoader() {
-                var loader = document.createElement('div')
-                loader.className = "loader"
-                loader.innerHTML = "<div style=\"width: " + (window.innerWidth * .05) + "px; height: " + (window.innerWidth * .05) + "px;\"> </div><div class=\"note\">Operations may take a moment to complete, please be patient.</div>"
-                document.body.appendChild(loader)
-            }
-        </script>
-    </div>
+        function showLoader() {
+            var loader = document.createElement('div')
+            loader.className = "loader"
+            loader.innerHTML = "<div style=\"width: " + (window.innerWidth * .05) + "px; height: " + (window.innerWidth * .05) + "px;\"> </div><div class=\"note\">Operations may take a moment to complete, please be patient.</div>"
+            document.body.appendChild(loader)
+        }
+    </script>
+</div>
