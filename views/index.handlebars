@@ -1,0 +1,31 @@
+<div>
+    {{#if error}}
+        <div class="error">{{ error }}</div>
+    {{else}}
+        <div class="image-grid">
+            {{#each images}}
+                <a class="image" href="/view/{{ this._id }}">
+                    <div class="title">{{ this.title }}</div>
+                    <div class="image-container">
+                        <img src="data:{{ this.mimeType }};base64,{{ this.data }}">
+                    </div>
+                </a>
+            {{/each}}
+        </div>
+        <script>
+            window.onload = function() {
+                var grid = document.querySelector('.image-grid')
+                for (var i = 0; i < grid.children.length; i++) {
+                    // grid.children[i].style.height = grid.width * .25 + "px"
+                    if (grid.children[i].children[0].children[0].height > grid.children[i].children[0].children[0].width) {
+                        grid.children[i].children[0].children[0].style.width = "100%"
+                        grid.children[i].children[0].children[0].style.height = "auto"
+                    } else if (grid.children[i].children[0].children[0].width > grid.children[i].children[0].children[0].height) {
+                        grid.children[i].children[0].children[0].style.width = "auto"
+                        grid.children[i].children[0].children[0].style.height = "100%"
+                    }
+                }
+            }
+        </script>
+    {{/if}}
+</div>

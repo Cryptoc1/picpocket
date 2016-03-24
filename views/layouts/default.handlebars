@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Flan</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,800' rel='stylesheet' type='text/css'>
+    <link href="/style.css" rel="stylesheet">
+    <script src="/lib.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+</head>
+
+<body>
+    <header>
+        <div class="title"><a href="/"><span class="f">f</span>lan</a>.<span class="dropdown">
+            <span>{{ endpoint }}</span>
+            <div class="dropdown-content">
+                <a href="/">.home</a>
+                <a href="/upload">.upload</a>
+                <a href="/search">.search</a>
+            </div>
+            </span>
+        </div>
+    </header>
+    <div class="content">
+        {{{ body }}}
+    </div>
+    <footer></footer>
+</body>
+
+</html>
