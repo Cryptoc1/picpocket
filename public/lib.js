@@ -62,3 +62,18 @@ window.Location.prototype.getUrlParameter = function(sParam) {
         }
     }
 }
+
+function initGallery() {
+    var grid = document.querySelector('.image-grid')
+    for (var i = 0; i < grid.children.length; i++) {
+        grid.children[i].style.height = window.innerWidth * .2 + "px"
+            // grid.children[i].children[1].style.height = grid.width * .1 + "px"
+            /*if (grid.children[i].children[1].children[0].height > grid.children[i].children[1].children[0].width) {
+                grid.children[i].children[1].children[0].style.width = "100%"
+                grid.children[i].children[1].children[0].style.height = "auto"
+            } else if (grid.children[i].children[1].children[0].width > grid.children[i].children[1].children[0].height) {
+                grid.children[i].children[1].children[0].style.width = "auto"
+                grid.children[i].children[1].children[0].style.height = "100%"
+            }*/
+    }
+}

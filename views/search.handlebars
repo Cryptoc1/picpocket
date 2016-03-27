@@ -25,16 +25,7 @@
     </div>
     <script>
         window.onload = function() {
-            var grid = document.querySelector('.image-grid')
-            for (var i = 0; i < grid.children.length; i++) {
-                if (grid.children[i].children[0].children[0].height > grid.children[i].children[0].children[0].width) {
-                    grid.children[i].children[0].children[0].style.width = "100%"
-                    grid.children[i].children[0].children[0].style.height = "auto"
-                } else if (grid.children[i].children[0].children[0].width > grid.children[i].children[0].children[0].height) {
-                    grid.children[i].children[0].children[0].style.width = "auto"
-                    grid.children[i].children[0].children[0].style.height = "100%"
-                }
-            }
+            initGallery()
         }
     </script>
 {{/if}}
