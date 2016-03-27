@@ -275,13 +275,14 @@ button:hover, button:active, button:focus {
 .image-grid .image {
     background-color: #3D3D3D;
     display: inline-block;
-    width: 30%;
+    width: 25%;
     height: auto;
     margin: 1%;
     overflow: hidden;
     border-radius: 2px;
     box-shadow: 0 2px 4px #333333;
     text-decoration: none;
+    padding: 0 1% 0 1%;
 }
 .image-grid .image .image-container {
     width: 100%;
@@ -293,7 +294,8 @@ button:hover, button:active, button:focus {
     z-index: 1;
 }
 .image-grid .image .image-container img {
-    width: 100%;
+    width: auto;
+    height: 100%;
     text-align: center;
     z-index: 1;
 }

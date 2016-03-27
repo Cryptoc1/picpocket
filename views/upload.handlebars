@@ -2,7 +2,7 @@
     {{#if error}}
         <error>{{ error }}</error>
     {{/if}}
-    <form class="form upload-form" action="/upload" method="post" enctype="multipart/form-data" onsubmit="showLoader()">
+    <form id="upload-form" class="form upload-form" action="/upload" method="post" enctype="multipart/form-data" onsubmit="showLoader()">
         <input type="text" name="title" placeholder="Image Title">
         <input type="file" name="image" id="image-file-input" required>
         <img id="image-preview">
