@@ -3,7 +3,6 @@ var express = require('express'),
     busboy = require('connect-busboy'),
     streamToBuffer = require('stream-to-buffer'),
     brotli = require('brotli'),
-    dotenv = require('dotenv'),
     fs = require('fs')
 
 var mongo = require('mongodb'),
@@ -13,10 +12,10 @@ var mongo = require('mongodb'),
 var app = express()
 
 // Initialize .env for virtual enviroment (local testing)
-dotenv.config()
+require('dotenv').config()
 
-// var url = process.env.MONGO_URI
-var url = "mongodb://test:password@127.0.0.1:27017/flan"
+var url = process.env.MONGO_URI
+// var url = "mongodb://test:password@127.0.0.1:27017/flan"
 var allowedMimeTypes = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif', 'image/webp']
 
 app.use(express.static('public'))
