@@ -1,37 +1,38 @@
 {
-    "name": "flan",
-    "version": "1.0.0",
-    "description": "A public image hosting site that utilizes brotli compression",
-    "main": "server.js",
-    "scripts": {
-        "test": "nodemon server.js",
-        "start": "node server.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/cryptoc1/flan.git"
-    },
-    "keywords": [
-        "image",
-        "brotli",
-        "hosting",
-        "image-hosting",
-        "pastry",
-        "🍮"
-    ],
-    "author": "Samuel Steele <steelesam72@gmail.com>",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/cryptoc1/flan/issues"
-    },
-    "homepage": "https://github.com/cryptoc1/flan#readme",
-    "dependencies": {
-        "brotli": "^1.1.0",
-        "connect-busboy": "0.0.2",
-        "dotenv": "^2.0.0",
-        "express": "^4.13.4",
-        "express-handlebars": "^3.0.0",
-        "mongodb": "^2.1.4",
-        "re": "^0.1.4"
-    }
+  "name": "flan",
+  "version": "1.0.0",
+  "description": "A public image hosting site that utilizes brotli compression",
+  "main": "server.js",
+  "scripts": {
+    "test": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cryptoc1/flan.git"
+  },
+  "keywords": [
+    "image",
+    "brotli",
+    "hosting",
+    "image-hosting",
+    "pastry",
+    "🍮"
+  ],
+  "author": "Samuel Steele <steelesam72@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cryptoc1/flan/issues"
+  },
+  "homepage": "https://github.com/cryptoc1/flan#readme",
+  "dependencies": {
+    "brotli": "^1.1.0",
+    "connect-busboy": "0.0.2",
+    "dotenv": "^2.0.0",
+    "express": "^4.13.4",
+    "express-handlebars": "^3.0.0",
+    "mongodb": "^2.1.4",
+    "re": "^0.1.4",
+    "stream-to-buffer": "^0.1.0"
+  }
 }
