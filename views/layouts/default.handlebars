@@ -2,12 +2,13 @@
 <html>
 
 <head>
-    <title>Flan</title>
+    <title>Flan.{{endpoint}}</title>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,800' rel='stylesheet' type='text/css'>
     <link href="/style.css" rel="stylesheet">
     {{#if img}}
+        <title>{{img.title}}</title>
         <meta property="og:title" content="{{img.title}}">
-        <meta property="og:image" content="https://flan.herokuapp.com/img/{{img._id}}"
+        <meta property="og:image" content="https://flan.herokuapp.com/img/{{img._id}}">
         <meta property="og:url" content="https://flan.herokuapp.com/view/{{img._id}}">
         {{#each img.tags}}
             <meta property="article:tag" content="{{this}}">
