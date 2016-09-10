@@ -3,6 +3,7 @@ var express = require('express'),
     busboy = require('connect-busboy'),
     streamToBuffer = require('stream-to-buffer'),
     brotli = require('brotli'),
+    shrink = require('shrink-ray'),
     fs = require('fs')
 
 var mongo = require('mongodb'),
@@ -17,6 +18,8 @@ require('dotenv').config()
 var url = process.env.MONGO_URI
     // var url = "mongodb://test:password@127.0.0.1:27017/picpocket"
 var allowedMimeTypes = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif', 'image/webp']
+
+app.use(shrink())
 
 app.use(express.static('public'))
 
