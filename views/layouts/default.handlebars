@@ -3,12 +3,13 @@
 
 <head>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,800' rel='stylesheet' type='text/css'>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="/style.css" rel="stylesheet">
     {{#if img}}
-        <title>Flan.view {{img.title}}</title>
+        <title>picpocket.view {{img.title}}</title>
         <meta property="og:title" content="{{img.title}}">
-        <meta property="og:image" content="https://flan.herokuapp.com/img/{{img._id}}">
-        <meta property="og:url" content="https://flan.herokuapp.com/view/{{img._id}}">
+        <meta property="og:image" content="https://picpocket.herokuapp.com/img/{{img._id}}">
+        <meta property="og:url" content="https://picpocket.herokuapp.com/view/{{img._id}}">
         {{#each img.tags}}
             <meta property="article:tag" content="{{this}}">
         {{/each}}
@@ -17,12 +18,12 @@
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:site" content="@cryptoc1">
         <meta name="twitter:title" content="{{img.title}}">
-        <meta property="twitter:description" content="View on Flan">
-        <meta name="twitter:image" content="https://flan.herokuapp.com/img/{{img._id}}">
-        <meta name="twitter:image:src" content="https://flan.herokuapp.com/img/{{img._id}}">
-        <meta name="twitter:url" content="https://flan.herokuapp.com/view/{{img._id}}">
+        <meta property="twitter:description" content="View on picpocket">
+        <meta name="twitter:image" content="https://picpocket.herokuapp.com/img/{{img._id}}">
+        <meta name="twitter:image:src" content="https://picpocket.herokuapp.com/img/{{img._id}}">
+        <meta name="twitter:url" content="https://picpocket.herokuapp.com/view/{{img._id}}">
     {{else}}
-        <title>Flan.{{endpoint}}</title>
+        <title>picpocket.{{endpoint}}</title>
     {{/if}}
     <script src="/lib.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -31,15 +32,14 @@
 
 <body>
     <header>
-        <div class="title"><a href="/"><span class="f">f</span>lan</a>.<span class="dropdown">
-            <span>{{ endpoint }}</span>
-            <div class="dropdown-content">
-                <a href="/">.home</a>
-                <a href="/upload">.upload</a>
-                <a href="/search">.search</a>
-            </div>
-            </span>
-        </div>
+        <span class="title">
+            <a href="/"><span class="prefix">pic</span>pocket</a>
+        </span>
+        <nav>
+            <a href="/" class="fa fa-home" title="Home"></a>
+            <a href="/upload" class="fa fa-cloud-upload" title="Upload"></a>
+            <a href="/search" class="fa fa-search" title="search"></a>
+        </nav>
     </header>
     <div class="content">
         {{{ body }}}

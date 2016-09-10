@@ -15,7 +15,7 @@ var app = express()
 require('dotenv').config()
 
 var url = process.env.MONGO_URI
-// var url = "mongodb://test:password@127.0.0.1:27017/flan"
+    // var url = "mongodb://test:password@127.0.0.1:27017/picpocket"
 var allowedMimeTypes = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif', 'image/webp']
 
 app.use(express.static('public'))
@@ -29,36 +29,36 @@ app.set('view engine', 'handlebars')
 
 app.get('/', function(req, res) {
     MongoClient.connect(url, function(err, db) {
-            if (err) {
-                // @TODO: Render error in page
-                console.error("Unable to connect to MongoDB: ", err)
-            } else {
-                db.collection('images').find().sort({
-                    created: -1
-                }).limit(20).toArray(function(err, images) {
-                        if (err) {
-                            console.error("Error searching DB:", err)
-                            res.render('index', {
-                                endpoint: "home",
-                                error: "Database error"
-                            })
-                        } else {
-                            if (images.length > 0) {
-                                images.map(function(image) {
-                                    image.data = new Buffer(brotli.decompress(image.data.buffer, image.length)).toString('base64')
-                                })
-                                res.render('index', {
-                                    endpoint: "home",
-                                    images: JSON.parse(JSON.stringify(images))
-                                })
-                            } else {
-                                res.render('index', {
-                                    endpoint: "home",
-                                    error: "No new posts at the moment! :("
-                                })
-                            }
+        if (err) {
+            // @TODO: Render error in page
+            console.error("Unable to connect to MongoDB: ", err)
+        } else {
+            db.collection('images').find().sort({
+                created: -1
+            }).limit(20).toArray(function(err, images) {
+                if (err) {
+                    console.error("Error searching DB:", err)
+                    res.render('index', {
+                        endpoint: "home",
+                        error: "Database error"
+                    })
+                } else {
+                    if (images.length > 0) {
+                        images.map(function(image) {
+                            image.data = new Buffer(brotli.decompress(image.data.buffer, image.length)).toString('base64')
+                        })
+                        res.render('index', {
+                            endpoint: "home",
+                            images: JSON.parse(JSON.stringify(images))
+                        })
+                    } else {
+                        res.render('index', {
+                            endpoint: "home",
+                            error: "No new posts at the moment! :("
+                        })
                     }
-                })
+                }
+            })
         }
     })
 })
@@ -72,7 +72,8 @@ app.get('/upload', function(req, res) {
 app.post('/upload', function(req, res) {
     if (req.busboy) {
         var metadata = {
-            created: new Date().getTime()
+            created: new Date().getTime(),
+            tags: []
         }
 
         req.busboy.on('field', function(name, value) {
@@ -81,9 +82,10 @@ app.post('/upload', function(req, res) {
                     metadata.title = value
                     break
                 case 'tags':
-                    metadata.tags = value.split(',')
-                    metadata.tags.map(function(tag) {
-                        tag = tag.trim()
+                    var tags = value.split(',')
+
+                    tags.map(function(tag) {
+                        metadata.tags.push(tag.trim())
                     })
                     break
                 default:

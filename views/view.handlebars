@@ -3,17 +3,17 @@
 {{else}}
     <data data-id="img-id">{{ img._id }}</data>
     <data data-id="img-tags">{{ img.tags }}</data>
-    <div class="flan-img-container">
-        <div class="flan-img-title">{{ img.title }}</div>
-        <img class="flan-img" src="data:{{img.mimeType}};base64,{{img.data}}">
-        <div class="flan-img-tags"></div>
+    <div class="picpocket-img-container">
+        <div class="picpocket-img-title">{{ img.title }}</div>
+        <img class="picpocket-img" src="data:{{img.mimeType}};base64,{{img.data}}">
+        <div class="picpocket-img-tags"></div>
     </div>
     <script>
         document.body.onload = function() {
             var tags = document.getDataElementByDataId('img-tags').textContent.split(',')
             tags.map(function(tag) {
-                var tContainer = document.querySelector('.flan-img-tags')
-                tContainer.innerHTML += "<a class=\"flan-img-tag\" href=\"/search?q=" + tag + "\">" + tag + "</a>"
+                var tContainer = document.querySelector('.picpocket-img-tags')
+                tContainer.innerHTML += "<a class=\"picpocket-img-tag\" href=\"/search?q=" + tag + "\">" + tag + "</a>"
             })
         }
     </script>
